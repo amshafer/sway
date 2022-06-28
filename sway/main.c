@@ -164,26 +164,6 @@ static bool detect_suid(void) {
 	return true;
 }
 
-static bool drop_permissions(void) {
-	//if (getuid() != geteuid() || getgid() != getegid()) {
-	//	// Set the gid and uid in the correct order.
-	//	if (setgid(getgid()) != 0) {
-	//		sway_log(SWAY_ERROR, "Unable to drop root group, refusing to start");
-	//		return false;
-	//	}
-	//	if (setuid(getuid()) != 0) {
-	//		sway_log(SWAY_ERROR, "Unable to drop root user, refusing to start");
-	//		return false;
-	//	}
-	//}
-	//if (setgid(0) != -1 || setuid(0) != -1) {
-	//	sway_log(SWAY_ERROR, "Unable to drop root (we shouldn't be able to "
-	//		"restore it after setuid), refusing to start");
-	//	return false;
-	//}
-	return true;
-}
-
 static void increase_nofile_limit(void) {
 	if (getrlimit(RLIMIT_NOFILE, &original_nofile_rlimit) != 0) {
 		sway_log_errno(SWAY_ERROR, "Failed to bump max open files limit: "
